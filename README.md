@@ -1,24 +1,26 @@
-<h1 align="center">Welcome to goclone</h1>
-<p>
-    <a href="https://goreportcard.com/report/github.com/BenAndGarys/goclone">
-     <img alt="Version" src="https://goreportcard.com/badge/github.com/BenAndGarys/goclone" />
-      </a>
-    <img alt="downloads" src="https://img.shields.io/github/contributors/imthaghost/ghostChat?color=green" target="_blank" />
+<p align="center">
+  <!-- <a href="https://github.com/adamfaliq42/jivesearch/edit/master/README.md">
+    <img alt="jive-search logo" src="frontend/static/icons/logo.png"> 
+  </a>-->
+</p>
 
-  </a> 
-  <a href="#" target="_blank">
-    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
-  </a>
+<br>
+
+<p align="center">
+Copy websites to your computer goclone is a utility that allows you to download a World Wide website from the Internet to a local directory, building recursively all directories, getting html, images, and other files from the server to your computer. Goclone arranges the original site's relative link-structure. Simply open a page of the "mirrored" website in your browser, and you can browse the site from link to link, as if you were viewing it online. Goclone can also update an existing mirrored site, and resume interrupted downloads. Goclone is fully configurable, and has an integrated help system.
+</p>
+
+<br>
+
+<p align="center">
+   <a href="https://goreportcard.com/report/github.com/imthaghost/goclone"><img src="https://goreportcard.com/badge/github.com/imthaghost/goclone"></a>
+   <a href="https://travis-ci.org/jivesearch/jivesearch"><img src="https://travis-ci.org/jivesearch/jivesearch.svg?branch=master"></a>
+  <a href="https://github.com/jivesearch/jivesearch/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-Apache-brightgreen.svg"></a>
    <a href="https://github.com/imthaghost/gitmoji-changelog">
-    <img src="https://img.shields.io/badge/changelog-gitmoji-brightgreen.svg" alt="gitmoji-changelog">
-  </a>
-  <a href="https://github.com/imthaghost/gitmoji-changelog">
     <img src="https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg"alt="gitmoji-changelog">
   </a>
-  
-  <img alt="Version" src="https://img.shields.io/badge/version-1.0-blue.svg?cacheSeconds=2592000" />
-
 </p>
+<br>
 
 > Copy websites to your computer goclone is a utility that allows you to download a World Wide website from the Internet to a local directory, building recursively all directories, getting html, images, and other files from the server to your computer. Goclone arranges the original site's relative link-structure. Simply open a page of the "mirrored" website in your browser, and you can browse the site from link to link, as if you were viewing it online. Goclone can also update an existing mirrored site, and resume interrupted downloads. Goclone is fully configurable, and has an integrated help system.
 
