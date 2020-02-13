@@ -24,7 +24,7 @@ Copy websites to your computer goclone is a utility that allows you to download 
 
 <!-- ![Example](/docs/media/landing.png) -->
 
-## 🚀 Getting Started
+## 🚀 Installation
 
 ### Homebrew
 
