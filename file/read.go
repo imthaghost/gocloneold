@@ -6,7 +6,7 @@ import (
 	erros "github.com/imthaghost/goclone/errors"
 )
 
-// read contents of file
+// ReadContents reads contents of a given file path
 func ReadContents(path string) []byte {
 	content, err := ioutil.ReadFile(path)
 	// nil check
