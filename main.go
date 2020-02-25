@@ -1,43 +1,51 @@
 package main
 
-import (
-	"fmt"
-	"os"
-)
+import "github.com/imthaghost/goclone/crawler"
 
-func checkargs(params []string) bool {
-	// no url or too many arguments
-	if len(params) > 2 || len(params) == 1 {
-		return false
-	}
-	return true
-}
+// func checkargs(params []string) bool {
+// 	// no url or too many arguments
+// 	if len(params) > 2 || len(params) == 1 {
+// 		return false
+// 	}
+// 	return true
+// }
 func main() {
-	// var url string
-	if checkargs(os.Args) == true {
-		fmt.Println(os.Args)
-	} else {
-		// description := `
-		// Easily copy websites to your computer with goclone
-		// goclone is a utility that allows you to download a website
-		// from the Internet to a local directory, building recursively
-		// all directories, getting html, images, and other files from
-		// the server to your computer.
+	// flags
 
-		// See Full Documentation: https://github.com/imthaghost/goclone`
+	// help, v := flags.ParseFlags()
+	// fmt.Print(v)
+	// if help != false {
+	// 	log.Println("hi")
+	// }
+	// if v != true {
+	// 	fmt.Print("Verbose disabled")
+	// }
+	// if checkargs(os.Args) == true {
+	// 	url := os.Args[1]
+	// 	//fmt.Println(url)
+	// 	fmt.Println(request.Validate(url))
+	// } else {
+	// description := `
+	// 	Easily copy websites to your computer with goclone
+	// 	goclone is a utility that allows you to download a website
+	// 	from the Internet to a local directory, building recursively
+	// 	all directories, getting html, images, and other files from
+	// 	the server to your computer.
 
-		incorrect := `
-		goclone <url>
-		example: goclone https://tesla.com
+	// 	// See Full Documentation: https://github.com/imthaghost/goclone`
 
-		See Full Command List: 
-		
-		goclone --help
+	// 	incorrect := `
+	// 	goclone <url>
+	// 	example: goclone https://tesla.com
 
-		`
-		fmt.Println(incorrect)
-	}
+	// 	See Full Command List:
+
+	// 	goclone --help
+
+	// 	`
+	// 	fmt.Println(incorrect)
+	// }
 
 	// Crawler
-	//crawler.Crawl()
+	crawler.Crawl()
 }
