@@ -61,6 +61,9 @@ func CreateProject(projectName string) string {
 	createCSS(projectPath)
 	createJS(projectPath)
 	createIMG(projectPath)
+	f, err := os.Create(projectPath + "/" + "index.html")
+	check(err)
+	f.Close()
 	// project path
 	return projectPath
 }

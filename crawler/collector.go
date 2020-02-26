@@ -2,78 +2,59 @@ package crawler
 
 import (
 	"fmt"
-	"log"
-	"os"
 
 	"github.com/gocolly/colly"
-
-	"github.com/imthaghost/goclone/request"
 )
 
 // Crawl ...
 func Crawl(site string) {
-	//cssqueue := make([]string, 0)
+
 	// create a new collector
 	c := colly.NewCollector(colly.Async(true))
-	// on every link tag that has a rel attribute
+	// on every link tag that has a rel attribute that is equal to stylesheet - CSS
 	c.OnHTML("link[rel='stylesheet']", func(e *colly.HTMLElement) {
+		cssqueue := make([]string, 0)
 		link := e.Attr("href")
+		cssqueue = append(cssqueue, link)
 		// Print link
 		fmt.Println("Css found", "-->", link)
-
+		c.Visit(e.Request.AbsoluteURL(link))
 	})
-	// on every script tag
+	// on every script tag that has a src attribute - JS
 	c.OnHTML("script[src]", func(e *colly.HTMLElement) {
 		link := e.Attr("src")
 		// Print link
 		fmt.Println("Js found", "-->", link)
-
+		c.Visit(e.Request.AbsoluteURL(link))
 	})
 
-	// on every img tag
+	// on every img tag that has a src attribute - Images
 	c.OnHTML("img[src]", func(e *colly.HTMLElement) {
 		link := e.Attr("src")
 		// Print link
 		fmt.Println("Img found", "-->", link)
+		c.Visit(e.Request.AbsoluteURL(link))
 	})
-	// // on every img tag
+
+	// todo figure how the fuck to pull videos from pages that create their own data attributes
+	// // on every img tag that has a src attribute - Images
 	// c.OnHTML("video", func(e *colly.HTMLElement) {
-	// 	link := e.Text
+	// 	link := e.Attr("src")
 	// 	// Print link
 	// 	fmt.Println("Video found", "-->", link)
-	// 	// Visit link found on page
-	// 	// Only those links are visited which are in AllowedDomains
-	// 	//c.Visit(e.Request.AbsoluteURL(link))
+	// 	c.Visit(e.Request.AbsoluteURL(link))
 	// })
 
 	// Before making a request print "Visiting ..."
 	c.OnRequest(func(r *colly.Request) {
 		fmt.Println("Visiting", "-->", r.URL.String())
+		r.Ctx.Put("url", r.URL.String())
 	})
 
 	c.OnResponse(func(r *colly.Response) {
-		path, err := os.Getwd()
-		if err != nil {
-			log.Println(err)
-		}
-		host := request.GetDomain(site)
-		projectPath := path + "/" + host + "/"
-		f, err := os.Create(projectPath + "index.html")
-		if err != nil {
-			fmt.Println(err)
 
-		}
-		f.WriteString(string(r.Body))
-		f.Close()
+		fmt.Println("Visited: ", r.Ctx.Get("url"))
 
-		//file.WriteTo(projectPath+"index.html", data)
-
-		// c.OnHTML("link[href]", func(e *colly.HTMLElement) {
-		// 	// grab the hyper link reference
-		// 	link := e.Attr("href")
-		// 	// push css link to the queue
-		// 	cssqueue = append(cssqueue, link)
-		// })
 	})
 	c.Visit(site)
 	c.Wait()
