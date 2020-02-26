@@ -22,7 +22,14 @@ Copy websites to your computer goclone is a utility that allows you to download 
 </p>
 <br>
 
-<!-- ![Example](/docs/media/landing.png) -->
+![Example](https://recordit.co/91Ya73DcSr)
+
+## Table of Contents
+
+-   [Introduction](#introduction)
+-   [Installation](#installation)
+-   [License](#license)
+-   [Contributors](#contributors)
 
 ## 🚀 Installation
 
@@ -36,15 +43,6 @@ cd goclone
 # build and install application
 go install
 ```
-
-## Table of Contents
-
--   [Introduction](#introduction)
--   [Features](#features)
--   [Contributors](#contributors)
--   [Build Process](#build-process)
--   [Backers](#backers-)
--   [Sponsors](#sponsors-)
 
 ## 📝 License
 
