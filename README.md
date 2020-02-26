@@ -22,7 +22,7 @@ Copy websites to your computer goclone is a utility that allows you to download 
 </p>
 <br>
 
-![Example](https://recordit.co/91Ya73DcSr)
+![Example](/docs/media/example.gif)
 
 ## Table of Contents
 
