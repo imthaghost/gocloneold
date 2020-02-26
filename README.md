@@ -1,6 +1,6 @@
 <p align="center">
   <a href="#">
-    <img alt="jedi" src="docs/media/jedi.png"> 
+    <img alt="jedi" src="docs/media/luke.png"> 
   </a>
 </p>
 
