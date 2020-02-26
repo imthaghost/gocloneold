@@ -29,7 +29,8 @@ func main() {
 		name := request.GetDomain(url)
 		// create project
 		file.CreateProject(name)
-
+		// Crawler
+		crawler.Crawl(url)
 	} else {
 		fmt.Print(url)
 	}

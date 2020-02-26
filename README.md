@@ -1,13 +1,13 @@
 <p align="center">
-  <!-- <a href="https://github.com/adamfaliq42/jivesearch/edit/master/README.md">
-    <img alt="jive-search logo" src="frontend/static/icons/logo.png"> 
-  </a>-->
+  <a href="#">
+    <img alt="jedi" src="docs/media/jedi.png"> 
+  </a>
 </p>
 
 <br>
 
 <p align="center">
-Copy websites to your computer goclone is a utility that allows you to download a website from the Internet to a local directory, building recursively all directories, getting html, images, and other files from the server to your computer. goclone arranges the original site's relative link-structure. Simply open a page of the "mirrored" website in your browser, and you can browse the site from link to link, as if you were viewing it online. Goclone can also update an existing mirrored site, and resume interrupted downloads. 
+Copy websites to your computer! goclone is a utility that allows you to download a website from the Internet to a local directory, building recursively all directories, getting html, css, js, images, and other files from the server to your computer. goclone arranges the original site's relative link-structure. Simply open a page of the "mirrored" website in your browser, and you can browse the site from link to link, as if you were viewing it online.
 </p>
 
 <br>
@@ -26,12 +26,13 @@ Copy websites to your computer goclone is a utility that allows you to download 
 
 -   [Introduction](#introduction)
 -   [Installation](#installation)
+-   [Examples](#examples)
 -   [License](#license)
 -   [Contributors](#contributors)
 
 ## 🚀 Installation
 
-### Terminal
+### Terminal - OSX
 
 ```bash
 # clone the repository
@@ -42,6 +43,15 @@ cd goclone
 go install
 ```
 
+## Examples
+
+###
+
+```bash
+# goclone <url>
+goclone https://tesla.com
+```
+
 ## 📝 License
 
 By contributing, you agree that your contributions will be licensed under its MIT License.
@@ -50,7 +60,7 @@ In short, when you submit code changes, your submissions are understood to be un
 
 ## Contributors
 
-Contributions are welcome! Please see our [Contributing Guide](https://imthaghost/zeus) for more details.
+Contributions are welcome! Please see [Contributing Guide](https://imthaghost/zeus) for more details.
 
 <table>
   <tr>

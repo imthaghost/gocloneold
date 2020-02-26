@@ -8,16 +8,24 @@ import (
 
 // Crawl ...
 func Crawl(site string) {
+	cssqueue := make([]string, 0)
 	// create a new collector
 	c := colly.NewCollector()
 	// Before making a request print "Visiting ..."
 	c.OnRequest(func(r *colly.Request) {
 		fmt.Println("Visiting", "-->", r.URL.String())
 	})
-	c.OnResponse(func(r *colly.Response) {
 
+	c.OnResponse(func(r *colly.Response) {
+		c.OnHTML("link[href]", func(e *colly.HTMLElement) {
+			// grab the hyper link reference
+			link := e.Attr("href")
+			// push css link to the queue
+			cssqueue = append(cssqueue, link)
+		})
 	})
 	c.Visit(site)
+	fmt.Println(cssqueue)
 
 	// const (
 	// 	csrfTokenSelector = "#main-container > section.content > main > div > div.auth-form.sign-in-form > form > input[type=hidden]:nth-child(2)"
