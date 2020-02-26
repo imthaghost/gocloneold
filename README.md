@@ -49,8 +49,10 @@ go install
 
 ```bash
 # goclone <url>
-goclone https://tesla.com
+goclone https://dribbble.com
 ```
+
+![Dribbble](/docs/media/dribbble.gif)
 
 ## 📝 License
 
