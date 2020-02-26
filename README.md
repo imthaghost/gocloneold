@@ -26,10 +26,15 @@ Copy websites to your computer goclone is a utility that allows you to download 
 
 ## 🚀 Installation
 
-### Homebrew
+### Terminal
 
 ```bash
-
+# clone the repository
+git clone https://github.com/imthaghost/goclone.git
+# change to project directory
+cd goclone
+# build and install application
+go install
 ```
 
 ## Table of Contents
