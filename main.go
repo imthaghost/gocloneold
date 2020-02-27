@@ -24,6 +24,7 @@ func main() {
 		validURL := request.CreateURL(name)
 		// Crawler
 		crawler.Crawl(validURL)
+		//crawler.Extractor(validURL)
 	} else if request.ValidateURL(url) {
 		// get the hostname
 		name := request.GetDomain(url)
@@ -31,6 +32,7 @@ func main() {
 		file.CreateProject(name)
 		// Crawler
 		crawler.Crawl(url)
+		//crawler.Extractor(url)
 	} else {
 		fmt.Print(url)
 	}
