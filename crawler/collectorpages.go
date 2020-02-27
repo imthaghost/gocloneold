@@ -6,28 +6,22 @@ import (
 	"github.com/gocolly/colly"
 )
 
-// CSSCollector ...
-func CSSCollector(site string) {
+// PageCollector ...
+func PageCollector(site string) {
 
 	// create a new collector
 	c := colly.NewCollector(
 		colly.Async(true),
 	)
 
-	// queue for css links
-	cssqueue := make([]string, 0)
-
-	// on every link tag that has a rel attribute that is equal to stylesheet - CSS
-	c.OnHTML("link[rel='stylesheet']", func(e *colly.HTMLElement) {
+	// on every a tag that has a href attribute - All links
+	c.OnHTML("a[href]", func(e *colly.HTMLElement) {
 
 		// hyperlink reference
 		link := e.Attr("href")
 
-		// enqueue
-		cssqueue = append(cssqueue, link)
-
-		// print css file was found
-		fmt.Println("Css found", "-->", link)
+		// print page was found
+		fmt.Println("Page found", "-->", link)
 
 		// Extract contents at specified links
 		Extractor(e.Request.AbsoluteURL(link))

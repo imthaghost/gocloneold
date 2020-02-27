@@ -20,6 +20,7 @@ func JSCollector(site string) {
 		fmt.Println("Js found", "-->", link)
 		Extractor(e.Request.AbsoluteURL(link))
 	})
+
 	// // Before making a request print "Visiting ..."
 	// c.OnRequest(func(r *colly.Request) {
 	// 	fmt.Println("Visiting", "-->", r.URL.String())
