@@ -15,7 +15,7 @@ func CSSCollector(site string) {
 	)
 
 	// queue for css links
-	cssqueue := make([]string, 0)
+	// cssqueue := make([]string, 0)
 
 	// on every link tag that has a rel attribute that is equal to stylesheet - CSS
 	c.OnHTML("link[rel='stylesheet']", func(e *colly.HTMLElement) {
@@ -24,29 +24,42 @@ func CSSCollector(site string) {
 		link := e.Attr("href")
 
 		// enqueue
-		cssqueue = append(cssqueue, link)
+		// cssqueue = append(cssqueue, link)
 
 		// print css file was found
 		fmt.Println("Css found", "-->", link)
 
 		// Extract contents at specified links
-		Extractor(e.Request.AbsoluteURL(link))
+		Extractor(e.Request.AbsoluteURL(link), true)
+	})
+
+	// Before making a request
+	c.OnRequest(func(r *colly.Request) {
+		r.Ctx.Put("url", r.URL.String())
+	})
+	// On
+	c.OnResponse(func(r *colly.Response) {
+
+		// fmt.Println("Visited: ", r.Ctx.Get("url"))
+
 	})
 	c.Visit(site)
 	c.Wait()
 
 }
 
-/* ********************************** Extension of same collector *******************************
-//SSCollector ...
-func CSSCollector(c *colly.Collector) {
-	c.OnHTML("link[rel='stylesheet']", func(e *colly.HTMLElement) {
-		link := e.Attr("href")
-		cssqueue = append(cssqueue, link)
-		Print link
-		fmt.Println("Css found", "-->", link)
-		c.Visit(e.Request.AbsoluteURL(link))
-		Extractor(e.Request.AbsoluteURL(link))
-	})
-}
-********************************* Extension of same collector *********************************/
+//CSSCollector ...
+// func CSSCollector(c *colly.Collector, linkChan chan<- string) {
+// 	c.OnHTML("link[rel='stylesheet']", func(e *colly.HTMLElement) {
+// 		link := e.Attr("href")
+// 		//Print link
+// 		// sends link
+// 		select {
+// 		case linkChan <- link:
+// 			fmt.Println(link)
+// 		default:
+// 			fmt.Println("no link")
+// 		}
+// 		fmt.Println("Css found", "-->", link)
+// 	})
+// }

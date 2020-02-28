@@ -18,7 +18,7 @@ func ImgCollector(site string) {
 		link := e.Attr("src")
 		// Print link
 		fmt.Println("Img found", "-->", link)
-		Extractor(e.Request.AbsoluteURL(link))
+		Extractor(e.Request.AbsoluteURL(link), true)
 	})
 	c.Visit(site)
 	c.Wait()

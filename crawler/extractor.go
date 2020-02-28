@@ -2,26 +2,29 @@ package crawler
 
 import (
 	"fmt"
-	"path"
 
 	"github.com/gocolly/colly"
 )
 
-// Extractor visits a link and downloads its contents to a file
-func Extractor(link string) {
+// Extractor visits a link dtermines if its a page or sublink downloads
+// the contents to a correct directory in project folder
+func Extractor(link string, page bool) {
 	// create a new collector
 	c := colly.NewCollector(colly.Async(true))
-	//Before making a request print "Visiting ..."
+	// Before making a request
 	c.OnRequest(func(r *colly.Request) {
-
+		// put the url as context in between request and response
 		r.Ctx.Put("url", r.URL.String())
 	})
+	// After making a request
 	c.OnResponse(func(r *colly.Response) {
-
-		fmt.Println("Extracting ", "-->", r.Ctx.Get("url"))
+		// get url from the response callback as context
 		url := r.Ctx.Get("url")
-		base := path.Base(url)
-		fmt.Println(base)
+		// Extract contents
+		fmt.Println("Extracting ", "-->", url)
+		// url := r.Ctx.Get("url")
+		// base := path.Base(url)
+		// fmt.Println(base)
 
 		// write as it downloads and not load the whole file into memory.
 		// Create the file

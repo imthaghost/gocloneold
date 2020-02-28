@@ -18,7 +18,7 @@ func JSCollector(site string) {
 		link := e.Attr("src")
 		// Print link
 		fmt.Println("Js found", "-->", link)
-		Extractor(e.Request.AbsoluteURL(link))
+		Extractor(e.Request.AbsoluteURL(link), true)
 	})
 
 	// // Before making a request print "Visiting ..."

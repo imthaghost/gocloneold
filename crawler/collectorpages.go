@@ -24,7 +24,7 @@ func PageCollector(site string) {
 		fmt.Println("Page found", "-->", link)
 
 		// Extract contents at specified links
-		Extractor(e.Request.AbsoluteURL(link))
+		Extractor(e.Request.AbsoluteURL(link), true)
 	})
 	c.Visit(site)
 	c.Wait()
