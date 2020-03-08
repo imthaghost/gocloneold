@@ -7,12 +7,15 @@ import (
 )
 
 // LoginCollector ...
-func LoginCollector() {
+func LoginCollector(site string) {
 	const (
 		csrfTokenSelector = "#main-container > section.content > main > div > div.auth-form.sign-in-form > form > input[type=hidden]:nth-child(2)"
 	)
 	// new collector
 	c := colly.NewCollector()
+
+	// detect csrf token field
+	// usually in a form or input field
 	/* ********************************** CSRF Token Authorization *******************************
 		# CSRF Token Authorization
 		c.OnHTML(csrfTokenSelector, func(e *colly.HTMLElement) {
@@ -26,6 +29,8 @@ func LoginCollector() {
 			fmt.Print(c.Cookies("https://www.makeschool.com/dashboard"))
 		})
 	 ********************************** CSRF Token Authorization ********************************/
+
+	//detect username and password field usually in a form or input field
 	err := c.Post("https://www.makeschool.com/login", map[string]string{"user[email]": "", "user[password]": ""})
 	if err != nil {
 		panic(err)

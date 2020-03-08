@@ -2,43 +2,41 @@ package crawler
 
 import (
 	"fmt"
-
-	"github.com/gocolly/colly"
+	"io"
+	"net/http"
+	"os"
+	"path"
+	"path/filepath"
+	"strings"
 )
 
 // Extractor visits a link dtermines if its a page or sublink downloads
 // the contents to a correct directory in project folder
-func Extractor(link string, page bool) {
-	// create a new collector
-	c := colly.NewCollector(colly.Async(true))
-	// Before making a request
-	c.OnRequest(func(r *colly.Request) {
-		// put the url as context in between request and response
-		r.Ctx.Put("url", r.URL.String())
-	})
-	// After making a request
-	c.OnResponse(func(r *colly.Response) {
-		// get url from the response callback as context
-		url := r.Ctx.Get("url")
-		// Extract contents
-		fmt.Println("Extracting ", "-->", url)
-		// url := r.Ctx.Get("url")
-		// base := path.Base(url)
-		// fmt.Println(base)
+func Extractor(link string) {
+	fmt.Println("Extracting --> ", link)
+	resp, err := http.Get(link)
+	if err != nil {
+		panic(err)
+	}
+	defer resp.Body.Close()
+	base := path.Base(link)
+	extension := filepath.Ext(base)
+	if strings.Contains(extension, ".css") {
+		var name = base[0 : len(base)-len(extension)]
+		fmt.Println(name + ".css")
+	}
+	if strings.Contains(extension, ".js") {
+		var name = base[0 : len(base)-len(extension)]
+		fmt.Println(name + ".js")
+	}
+	//write as it downloads and not load the whole file into memory.
+	out, err := os.Create(base + extension)
+	if err != nil {
+		fmt.Println(err)
+	}
+	defer out.Close()
+	// Write the body to file
+	_, err = io.Copy(out, resp.Body)
+	fmt.Println(err)
 
-		// write as it downloads and not load the whole file into memory.
-		// Create the file
-		// out, err := os.Create(filepath)
-		// if err != nil {
-		// 	return err
-		// }
-		// defer out.Close()
-
-		// // Write the body to file
-		// _, err = io.Copy(out, resp.Body)
-		// return err
-
-	})
-	c.Visit(link)
-	c.Wait()
 }
