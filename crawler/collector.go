@@ -6,49 +6,39 @@ import (
 	"github.com/gocolly/colly"
 )
 
-// Collector ...
-func Collector(url string) {
+// Collector searches for css, js, and images within a given link
+func Collector(url string, projectPath string) {
 	// create a new collector
 	c := colly.NewCollector(
+		// asychronus boolean
 		colly.Async(true),
 	)
-	// on every link tag that has a rel attribute that is equal to stylesheet - CSS
-	// c.OnHTML("a[href]", func(e *colly.HTMLElement) {
-
-	// 	// hyperlink reference
-	// 	link := e.Attr("href")
-
-	// 	// print css file was found
-	// 	fmt.Println("Link found", "-->", e.Request.AbsoluteURL(link))
-
-	// 	// go c.Visit(e.Request.AbsoluteURL(link))
-
-	// })
-	// on every link tag that has a rel attribute that is equal to stylesheet - CSS
+	// search for all link tags that have a rel attribute that is equal to stylesheet - CSS
 	c.OnHTML("link[rel='stylesheet']", func(e *colly.HTMLElement) {
-
 		// hyperlink reference
 		link := e.Attr("href")
-
 		// print css file was found
 		fmt.Println("Css found", "-->", link)
-		Extractor(e.Request.AbsoluteURL(link))
-		//c.Visit(e.Request.AbsoluteURL(link))
-
+		// extraction
+		Extractor(e.Request.AbsoluteURL(link), projectPath)
 	})
+	// search for all script tags with src attribute -- JS
 	c.OnHTML("script[src]", func(e *colly.HTMLElement) {
+		// src attribute
 		link := e.Attr("src")
 		// Print link
 		fmt.Println("Js found", "-->", link)
-		Extractor(e.Request.AbsoluteURL(link))
-		// go c.Visit(e.Request.AbsoluteURL(link))
+		// extraction
+		Extractor(e.Request.AbsoluteURL(link), projectPath)
 	})
+	// serach for all img tags with src attribute -- Images
 	c.OnHTML("img[src]", func(e *colly.HTMLElement) {
+		// src attribute
 		link := e.Attr("src")
 		// Print link
 		fmt.Println("Img found", "-->", link)
-		Extractor(e.Request.AbsoluteURL(link))
-		//go c.Visit(e.Request.AbsoluteURL(link))
+		// extraction
+		Extractor(e.Request.AbsoluteURL(link), projectPath)
 	})
 	// Before making a request
 	// c.OnRequest(func(r *colly.Request) {
@@ -65,7 +55,6 @@ func Collector(url string) {
 	// 	}
 	// 	// else call the extractor as false
 	// 	// Extractor(link)
-
 	// })
 	c.Visit(url)
 	c.Wait()

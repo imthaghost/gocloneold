@@ -29,20 +29,18 @@ func main() {
 		// use the domain as the project name
 		name := url
 		// CreateProject
-		file.CreateProject(name)
+		projectpath := file.CreateProject(name)
 		// create the url
 		validURL := parser.CreateURL(name)
 		// Crawler
-		crawler.Crawl(validURL)
-		//crawler.Extractor(validURL)
+		crawler.Crawl(validURL, projectpath)
 	} else if parser.ValidateURL(url) {
 		// get the hostname
 		name := parser.GetDomain(url)
 		// create project
-		file.CreateProject(name)
+		projectpath := file.CreateProject(name)
 		// Crawler
-		crawler.Crawl(url)
-		//crawler.Extractor(url)
+		crawler.Crawl(url, projectpath)
 	} else {
 		fmt.Print(url)
 	}
