@@ -10,7 +10,7 @@ Copy websites to your computer! goclone is a utility that allows you to download
 </p>
 
 <br>
-<p> Official Website: <a>https://goclone.herokuapp.com/</a></p>
+<p align="center"> Official Website: <a href="https://goclone.herokuapp.com/">https://goclone.herokuapp.com/</a></p>
 
 <br>
 
@@ -46,9 +46,9 @@ brew install goclone
 
 ```bash
 # clone the repository
-git clone https://github.com/imthaghost/goclone.git
-# change to project directory
-cd goclone
+go get https://github.com/imthaghost/goclone
+# change to project directory using your GOPATH
+cd $GOPATH/src/github.com/imthaghost/goclone
 # build and install application
 go install
 ```
