@@ -1,4 +1,4 @@
-fca9f0c4f3291a82058e2cc7034d3b4fbdce605d494bb8d1f8434b169c672e2c  goclone_v1.0.0-next_Linux-64bit.tar.gz
-79cb0641fbe1094d8aaeb110adfa011882448d3d253a42b4bdef173760557c1d  goclone_v1.0.0-next_Linux-32bit.tar.gz
-a38f1d6d60566e72952aeb3b34e8d3e45f018fa53494bd6746dfab021e20815c  goclone_v1.0.0-next_macOS-32bit.tar.gz
-72b8c4820c2bea998a326e5b2e687a9e372e0d0f6b3d5dd2862d8c135fd21ab7  goclone_v1.0.0-next_macOS-64bit.tar.gz
+2b20e3370ef41abaa9846aa1655688667c8b9075dcd111b53d095b119b6b0198  goclone_1.0.1_macOS-32bit.tar.gz
+6ffd2f9ed1cc46751749078687ddb20553bddd4b9f496bfa951a6246a39d21fb  goclone_1.0.1_Linux-64bit.tar.gz
+65e4e50ee957c735022adba417bd8d6eaec33391fcc62caaf2c0c540aff57f72  goclone_1.0.1_macOS-64bit.tar.gz
+f0a1cdf85ccb01f30ecf50df377172d0c3da116bcd7f53d7f67df9834b4afd99  goclone_1.0.1_Linux-32bit.tar.gz
