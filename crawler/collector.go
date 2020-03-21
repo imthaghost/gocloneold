@@ -42,16 +42,19 @@ func Collector(url string, projectPath string) {
 	})
 	//Before making a request
 	c.OnRequest(func(r *colly.Request) {
-		r.Ctx.Put("url", r.URL.String())
-	})
-	// Response of each visited page
-	c.OnResponse(func(r *colly.Response) {
-		link := r.Ctx.Get("url")
-		// check if the url being visited is the root for searching if so write it as a page
+		link := r.URL.String()
 		if url == link {
 			HTMLExtractor(link, projectPath)
 		}
 	})
+	// Response of each visited page
+	// c.OnResponse(func(r *colly.Response) {
+	// 	link := r.Ctx.Get("url")
+	// 	// check if the url being visited is the root for searching if so write it as a page
+	// 	if url == link {
+	// 		HTMLExtractor(link, projectPath)
+	// 	}
+	// })
 	c.Visit(url)
 	c.Wait()
 }
