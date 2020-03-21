@@ -6,6 +6,7 @@ import (
 
 	"github.com/imthaghost/goclone/crawler"
 	"github.com/imthaghost/goclone/file"
+	"github.com/imthaghost/goclone/html"
 	"github.com/imthaghost/goclone/parser"
 )
 
@@ -34,6 +35,8 @@ func main() {
 		validURL := parser.CreateURL(name)
 		// Crawler
 		crawler.Crawl(validURL, projectpath)
+		// Restructure html
+		html.LinkRestructure(projectpath)
 	} else if parser.ValidateURL(url) {
 		// get the hostname
 		name := parser.GetDomain(url)
@@ -41,6 +44,8 @@ func main() {
 		projectpath := file.CreateProject(name)
 		// Crawler
 		crawler.Crawl(url, projectpath)
+		// Restructure html
+		html.LinkRestructure(projectpath)
 	} else {
 		fmt.Print(url)
 	}

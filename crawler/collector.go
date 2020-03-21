@@ -40,22 +40,18 @@ func Collector(url string, projectPath string) {
 		// extraction
 		Extractor(e.Request.AbsoluteURL(link), projectPath)
 	})
-	// Before making a request
-	// c.OnRequest(func(r *colly.Request) {
-	// 	r.Ctx.Put("url", r.URL.String())
-	// })
-	// // On
-	// c.OnResponse(func(r *colly.Response) {
-	// 	link := r.Ctx.Get("url")
-	// 	// check if the url being visited is the root for searching if so write it as a page
-	// 	if url == link {
-	// 		//fmt.Println(r.Request.URL)
-	// 		//Extractor(link, true)
-	// 		return
-	// 	}
-	// 	// else call the extractor as false
-	// 	// Extractor(link)
-	// })
+	//Before making a request
+	c.OnRequest(func(r *colly.Request) {
+		r.Ctx.Put("url", r.URL.String())
+	})
+	// Response of each visited page
+	c.OnResponse(func(r *colly.Response) {
+		link := r.Ctx.Get("url")
+		// check if the url being visited is the root for searching if so write it as a page
+		if url == link {
+			HTMLExtractor(link, projectPath)
+		}
+	})
 	c.Visit(url)
 	c.Wait()
 }
