@@ -1,0 +1,4 @@
+c0929a477560cdae16a009375d4c5a81b75bdf527de3d7ddf10417d0e89652fe  goclone_v0.0.0-next_Linux_x86_64.tar.gz
+c01afc63760a518baf686e5ac65dade942192b1e62d15b059583754dc9df7769  goclone_v0.0.0-next_Darwin_i386.tar.gz
+7d3c436b4b820e33d9806eb0fa2f59c96074ab7706981b69bd4f7a9aad8cb653  goclone_v0.0.0-next_Linux_i386.tar.gz
+cbdbcd645a4881a52ddc464dccbfabf71961d808046ed537d4d43bd92b365d99  goclone_v0.0.0-next_Darwin_x86_64.tar.gz
