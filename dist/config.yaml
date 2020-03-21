@@ -1,4 +1,7 @@
 project_name: goclone
+env:
+- GO111MODULE=on
+- CGO_ENABLED=0
 release:
   github:
     owner: imthaghost
@@ -25,7 +28,7 @@ builds:
   - darwin_amd64
   - darwin_386
   dir: .
-  main: .
+  main: ./main.go
   ldflags:
   - -s -w -X main.version={{.Version}} -X main.commit={{.Commit}} -X main.date={{.Date}}
     -X main.builtBy=goreleaser
@@ -37,24 +40,21 @@ archives:
 - id: default
   builds:
   - goclone
-  name_template: '{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}{{ if .Arm
-    }}v{{ .Arm }}{{ end }}{{ if .Mips }}_{{ .Mips }}{{ end }}'
+  name_template: '{{.ProjectName}}_{{.Version}}_{{.Os}}-{{.Arch}}'
   replacements:
-    "386": i386
-    amd64: x86_64
-    darwin: Darwin
+    "386": 32bit
+    amd64: 64bit
+    arm: ARM
+    arm64: ARM64
+    darwin: macOS
     linux: Linux
     windows: Windows
   format: tar.gz
+  format_overrides:
+  - goos: windows
+    format: zip
   files:
-  - licence*
-  - LICENCE*
-  - license*
-  - LICENSE*
-  - readme*
-  - README*
-  - changelog*
-  - CHANGELOG*
+  - README.md
 snapshot:
   name_template: '{{ .Tag }}-next'
 checksum:
@@ -65,6 +65,9 @@ changelog:
     exclude:
     - '^docs:'
     - '^test:'
+    - README
+    - Merge pull request
+    - Merge branch
   sort: asc
 dist: dist
 signs:
@@ -83,8 +86,8 @@ env_files:
   gitea_token: ~/.config/goreleaser/gitea_token
 before:
   hooks:
+  - go mod tidy
   - go mod download
-  - go generate ./...
 github_urls:
   download: https://github.com
 gitlab_urls:
