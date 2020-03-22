@@ -3,7 +3,7 @@ module github.com/imthaghost/goclone
 go 1.13
 
 require (
-	github.com/PuerkitoBio/goquery v1.5.1 // indirect
+	github.com/PuerkitoBio/goquery v1.5.1
 	github.com/antchfx/htmlquery v1.2.2 // indirect
 	github.com/antchfx/xmlquery v1.2.3 // indirect
 	github.com/antchfx/xpath v1.1.4 // indirect
@@ -17,6 +17,6 @@ require (
 	github.com/stretchr/testify v1.4.0 // indirect
 	github.com/temoto/robotstxt v1.1.1 // indirect
 	github.com/torden/go-strutil v0.1.5
-	golang.org/x/net v0.0.0-20200222125558-5a598a2470a0 // indirect
+	golang.org/x/net v0.0.0-20200222125558-5a598a2470a0
 	google.golang.org/appengine v1.6.5 // indirect
 )

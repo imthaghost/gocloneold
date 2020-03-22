@@ -1,7 +1,6 @@
 package html
 
 import (
-	"fmt"
 	"regexp"
 )
 
@@ -13,6 +12,5 @@ func CSSFinder(htmlData []byte) []string {
 	for _, m := range matches {
 		results = append(results, m[0])
 	}
-	fmt.Println(results)
 	return results
 }
