@@ -14,20 +14,22 @@ e610f4a [update] READEME.md
 a0373f3 [update] root command functionality
 b2d1661 add license
 e7e8566 ignore file
-c4b3906 update
-e6b7e7f update
-1459122 update
+0b582bb update
 c6005da update
-12f4d16 update
+70a3ca5 update
+e6b7e7f update
+1400bad update
+c4b3906 update
+07065d5 update
 72e6c9a update
 4ca9e4b update
 ac84beb update
-70a3ca5 update
-f634a0a update
-1400bad update
-07065d5 update
-0b582bb update
 f555ff6 update
+f634a0a update
+dd15b17 update
+12f4d16 update
+1459122 update
+2306142 update
 832e8dc update READEME.md
 b2d87d6 update added link parser and extractor parser
 c5daeb0 update refactor collector funcitonality

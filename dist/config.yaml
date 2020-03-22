@@ -7,6 +7,20 @@ release:
     owner: imthaghost
     name: goclone
   name_template: '{{.Tag}}'
+brews:
+- name: goclone
+  github:
+    owner: imthaghost
+    name: homebrew-goclone
+  commit_author:
+    name: goreleaserbot
+    email: goreleaser@carlosbecker.com
+  folder: Formula
+  install: bin.install "goclone"
+  description: Website Cloner - Utilizes powerful go routines to clone websites to
+    your computer within seconds.
+  homepage: https://github.com/imthaghost/goclone
+  goarm: "6"
 scoop:
   name: goclone
   commit_author:
