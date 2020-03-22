@@ -3,17 +3,12 @@
     <img alt="jedi" src="docs/media/logo.png"> 
   </a>
 </p>
-<!-- <br> -->
 <p align="center">
 Copy websites to your computer! goclone is a utility that allows you to download a website from the Internet to a local directory. Get html, css, js, images, and other files from the server to your computer. goclone arranges the original site's relative link-structure. Simply open a page of the "mirrored" website in your browser, and you can browse the site from link to link, as if you were viewing it online.
-
 </p>
-
 <br>
-<p align="center"> Official Website: <a href="https://goclone.herokuapp.com/">https://goclone.herokuapp.com/</a></p>
-
+<p align="center"><a href="https://goclone.herokuapp.com/">Official Website</a></p>
 <br>
-
 <p align="center">
    <a href="https://goreportcard.com/report/github.com/imthaghost/goclone"><img src="https://goreportcard.com/badge/github.com/imthaghost/goclone"></a>
    <a href="https://github.com/imthaghost/gitmoji-changelog">
