@@ -138,4 +138,21 @@ func Extractor(link string, projectPath string) {
 		}
 		f.Write(htmlData)
 	}
+	// svg extension
+	if strings.Contains(extension, ".svg") {
+		var name = base[0 : len(base)-len(extension)]
+		document := name + ".svg"
+
+		f, err := os.OpenFile(projectPath+"/"+"imgs/"+document, os.O_RDWR|os.O_CREATE, 0777)
+		if err != nil {
+			panic(err)
+		}
+		defer f.Close()
+		htmlData, err := ioutil.ReadAll(resp.Body)
+
+		if err != nil {
+			panic(err)
+		}
+		f.Write(htmlData)
+	}
 }
