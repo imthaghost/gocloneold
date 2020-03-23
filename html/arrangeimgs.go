@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
+	"path/filepath"
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
@@ -19,35 +20,34 @@ func ArrangeImgs(projectDir string) {
 		panic(err)
 	}
 	lines := strings.Split(string(input), "\n")
-	images, err := ioutil.ReadDir(projectDir + "/imgs")
+	// images, err := ioutil.ReadDir(projectDir + "/imgs")
 	// uh oh :(
 	if err != nil {
 		panic(err)
 	}
-	fileindex := 0
-	for fileindex < len(images) {
-		for index, line := range lines {
-			b := []byte(line)
-			r := bytes.NewReader(b)
-			doc, err := goquery.NewDocumentFromReader(r)
-			if err != nil {
-				panic(err)
-			}
-			// Find the review items
-			doc.Find("img[src]").Each(func(i int, s *goquery.Selection) {
-				// For each item found, get the band and title
-				data, err := s.Attr("src")
-				fmt.Println(err)
-				if data != "" {
-					s.SetAttr("src", "imgs/"+images[fileindex].Name())
-					data, err := s.Attr("src")
-					lines[index] = fmt.Sprintf(`<img src="%s">`, data)
-					fmt.Println(data, err)
-					fileindex++
-				}
-			})
-
+	for index, line := range lines {
+		b := []byte(line)
+		r := bytes.NewReader(b)
+		doc, err := goquery.NewDocumentFromReader(r)
+		if err != nil {
+			panic(err)
 		}
+		// Find the review items
+		doc.Find("img[src]").Each(func(i int, s *goquery.Selection) {
+			// For each item found, get the band and title
+			data, err := s.Attr("src")
+			fmt.Println(err)
+			fmt.Println(data)
+			if data != "" {
+				file := filepath.Base(data)
+				s.SetAttr("src", "imgs/"+file)
+				data, err := s.Attr("src")
+				lines[index] = fmt.Sprintf(`<img src="%s">`, data)
+				fmt.Println(data, err)
+
+			}
+		})
+
 	}
 
 	output := strings.Join(lines, "\n")

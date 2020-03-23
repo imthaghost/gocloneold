@@ -40,7 +40,7 @@ brew install goclone
 ### Manual
 
 ```bash
-# clone the repository
+# go get :)
 go get https://github.com/imthaghost/goclone
 # change to project directory using your GOPATH
 cd $GOPATH/src/github.com/imthaghost/goclone
