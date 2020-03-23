@@ -23,6 +23,6 @@ func LinkRestructure(projectDir string) {
 	// arrange js
 	ArrangeJS(projectDir)
 	// arrange imgs
-	// ArrangeImgs(projectDir)
+	ArrangeImgs(projectDir)
 
 }

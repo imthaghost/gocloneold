@@ -38,13 +38,17 @@ func ArrangeJS(projectDir string) {
 			// Find the review items
 			doc.Find("script[src]").Each(func(i int, s *goquery.Selection) {
 				// For each item found, get the band and title
-				data, err := s.Attr("src")
-				fmt.Println(err)
+				data, exists := s.Attr("src")
+				if exists {
+
+				}
 				if data != "" {
 					s.SetAttr("src", "js/"+jsfile.Name())
-					data, err := s.Attr("src")
+					data, exists := s.Attr("src")
 					lines[index] = fmt.Sprintf(`<script src="%s"></script>`, data)
-					fmt.Println(data, err)
+					if exists {
+
+					}
 
 				}
 
